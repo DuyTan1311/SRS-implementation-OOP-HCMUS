@@ -2,6 +2,7 @@
 #include <string>
 #include <list>
 #include "Section.h"
+#include "ScheduleOfClasses.h"
 
 class Course{
 private:
@@ -9,7 +10,7 @@ private:
     std::string courseName;
     int credits;
     std::list<Course*> prerequisites;
-    std::list<Section*> sections;
+    std::list<Section*> sections;   
 public:
     void setCourseNo(std::string courseNo);
     void setCourseName(std::string courseName);

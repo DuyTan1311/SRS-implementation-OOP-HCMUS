@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "Course.h"
+#include "ScheduleOfClasses.h"
 
 class Section{
 private:
@@ -10,6 +11,7 @@ private:
     std::string room;
     int seatingCapacity;
     Course* course;
+    ScheduleOfClasses* scheduleOfClasses;
     //list<Student*> students;
 public:
     void setSectionNo(std::string no);
@@ -18,6 +20,7 @@ public:
     void setRoom(std::string room);
     void setSeatingCapacity(int capacity);
     void setCourse(Course* course);
+    void setScheduleOfClasses(ScheduleOfClasses* schedule);
     Section();
     Section(std::string sectionNo, std::string dayOfWeek, std::string timeOfDay, std::string room, int seatingCapacity);
     std::string getSectionNo();

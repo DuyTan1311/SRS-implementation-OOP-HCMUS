@@ -19,8 +19,11 @@ void Section :: setRoom(string room){
 void Section :: setSeatingCapacity(int capacity){
     this->seatingCapacity = capacity;
 }
-void Section:: setCourse(Course* course){
+void Section :: setCourse(Course* course){
     this->course = course;
+}
+void Section :: setScheduleOfClasses(ScheduleOfClasses* schedule){
+    this->scheduleOfClasses = schedule;
 }
 
 Section :: Section(){
