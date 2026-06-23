@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include "Section.h"
+#include "ScheduleOfClasses.h"
 
 using namespace std;
 

@@ -1,6 +1,7 @@
 #include "ScheduleOfClasses.h"
 #include<string>
 #include<list>
+#include "Section.h"
 
 using namespace std;
 

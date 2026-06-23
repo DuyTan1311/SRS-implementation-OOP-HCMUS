@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
-#include "Course.h"
-#include "ScheduleOfClasses.h"
+
+
+class Course;
+class ScheduleOfClasses;
 
 class Section{
 private:
