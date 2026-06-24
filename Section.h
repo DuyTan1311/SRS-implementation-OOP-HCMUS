@@ -1,9 +1,10 @@
 #pragma once
 #include <string>
-
+#include <list>
 
 class Course;
 class ScheduleOfClasses;
+class Student;
 
 class Section{
 private:
@@ -14,7 +15,7 @@ private:
     int seatingCapacity;
     Course* course;
     ScheduleOfClasses* scheduleOfClasses;
-    //list<Student*> students;
+    list<Student*> students;
 public:
     void setSectionNo(std::string no);
     void setDayOfWeek(std::string day);
@@ -31,9 +32,10 @@ public:
     std::string getRoom();
     Course* getCourse();
     int getSeatingCapacity();
-    // void addStudent();
+    const list<Student*>& getStudents();
+    void addStudent(Student* student);
+    void drop(Student* student);
     // bool enroll(); // hàm này cần class student để đăng ký, cần class transcript để check bảng điểm và môn tiên quyết
     // void postGrade(); // hàm này cần class student và transcript và transcriptEntry để thêm điểm môn vào bảng điểm sinh viên
-    // void drop();
-    // void confirmSeatAvailability(); // kiểm tra xem số sinh viên hiện tại của lớp đã vượt quá capacity chưa
+    bool confirmSeatAvailability(); // kiểm tra xem số sinh viên hiện tại của lớp đã vượt quá capacity chưa
 };

@@ -3,6 +3,7 @@
 #include<list>
 #include "Course.h"
 #include "ScheduleOfClasses.h"
+#include "Person.h"
 
 using namespace std;
 
@@ -60,4 +61,25 @@ int Section :: getSeatingCapacity(){
 }
 Course* Section :: getCourse(){
     return this->course;
+}
+
+const list<Student*>& Section :: getStudents(){
+    return this->students;
+}
+
+void Section :: addStudent(Student* student){
+    for(Student* stu : this->getStudents()){
+        if(stu == student){
+            return;
+        }
+    }
+    this->students.push_back(student);
+}
+
+void Section :: drop(Student* student){
+    this->students.remove(student);
+}
+
+bool Section :: confirmSeatAvailability(){
+    return this->students.size() < this->getSeatingCapacity();
 }

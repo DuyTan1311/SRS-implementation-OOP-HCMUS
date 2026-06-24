@@ -29,6 +29,7 @@ public:
     void setDegree(std::string degree);
     Student();
     Student(std::string ssn, std::string name, std::string major, std::string degree);
+    ~Student() override;
     std::string getMajor();
     std::string getDegree();
     void addSection(Section* section);
