@@ -3,6 +3,7 @@
 #include<list>
 #include "Person.h"
 #include "Section.h"
+#include "Transcript.h"
 
 using namespace std;
 
@@ -38,6 +39,11 @@ void Student :: setDegree(string degree){
     this->degree = degree;
 }
 
+void Student :: setTranscript(Transcript* transcript){
+    if(this->transcript != nullptr) return;
+    this->transcript = transcript;
+}
+
 Student :: Student() : Person(){
     this->setMajor("none");
     this->setDegree("none");
@@ -52,6 +58,9 @@ string Student :: getMajor(){
 }
 string Student :: getDegree(){
     return this->degree;
+}
+Transcript* Student :: getTranscript(){
+    return this->transcript;
 }
 
 const list<Section*>& Student :: isEnrolledIn(){

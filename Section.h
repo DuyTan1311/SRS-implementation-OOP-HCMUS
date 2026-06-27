@@ -35,7 +35,7 @@ public:
     const list<Student*>& getStudents();
     void addStudent(Student* student);
     void drop(Student* student);
-    // bool enroll(); // hàm này cần class student để đăng ký, cần class transcript để check bảng điểm và môn tiên quyết
-    // void postGrade(); // hàm này cần class student và transcript và transcriptEntry để thêm điểm môn vào bảng điểm sinh viên
+    bool enroll(Student* student); // hàm này cần class student để đăng ký, cần class transcript để check bảng điểm và môn tiên quyết
+    bool postGrade(Student* student, int grade); // hàm này cần class student và transcript và transcriptEntry để thêm điểm môn vào bảng điểm sinh viên
     bool confirmSeatAvailability(); // kiểm tra xem số sinh viên hiện tại của lớp đã vượt quá capacity chưa
 };

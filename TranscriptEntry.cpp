@@ -1,6 +1,8 @@
 #include<iostream>
 #include "TranscriptEntry.h"
 
+using namespace std;
+
 void TranscriptEntry :: setGrade(int grade){
     this->grade = grade;
 }

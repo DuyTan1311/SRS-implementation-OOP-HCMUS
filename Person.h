@@ -3,6 +3,7 @@
 #include<list>
 
 class Section;
+class Transcript;
 
 class Person{
 private:
@@ -24,14 +25,17 @@ private:
     std::string major;
     std::string degree;
     std::list<Section*> sections;
+    Transcript* transcript;
 public:
     void setMajor(std::string major);
     void setDegree(std::string degree);
+    void setTranscript(Transcript* transcript);
     Student();
     Student(std::string ssn, std::string name, std::string major, std::string degree);
     ~Student() override;
     std::string getMajor();
     std::string getDegree();
+    Transcript* getTranscript();
     void addSection(Section* section);
     void dropSection(Section* section);
     const std::list<Section*>& isEnrolledIn();

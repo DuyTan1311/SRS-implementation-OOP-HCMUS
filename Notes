@@ -1,0 +1,1 @@
+- cần viết destructor và các hàm gỡ liên kết cho các class có liên kết với nhau để tránh dangling pointer

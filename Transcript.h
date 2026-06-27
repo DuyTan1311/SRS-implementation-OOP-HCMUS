@@ -5,6 +5,7 @@
 class TranscriptEntry;
 class Student;
 class Section;
+class Course;
 
 class Transcript{
 private:
@@ -12,7 +13,10 @@ private:
     Student* student;
 public:
     void addTranscriptEntry(Section* section, int grade);
+    void addStudent(Student* student);
     int getGrade(std::string courseNo);
+    Student* getStudent();
+    const std::list<TranscriptEntry*>& getEntries();
     ~Transcript();
 
 };
