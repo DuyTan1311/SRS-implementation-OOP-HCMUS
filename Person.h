@@ -38,6 +38,7 @@ public:
     Transcript* getTranscript();
     void addSection(Section* section);
     void dropSection(Section* section);
+    void detachTranscript();
     const std::list<Section*>& isEnrolledIn();
     void display() override;
 };

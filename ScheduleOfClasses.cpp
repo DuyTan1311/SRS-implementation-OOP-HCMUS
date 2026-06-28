@@ -13,6 +13,11 @@ void ScheduleOfClasses :: addSection(Section* section){
     this->sections.push_back(section);
 }
 
+void ScheduleOfClasses :: dropSection(Section* section){
+    if(section == nullptr) return;
+    this->sections.remove(section);
+}
+
 ScheduleOfClasses :: ScheduleOfClasses(){
     this->setSemester("none");
 }
@@ -21,6 +26,11 @@ ScheduleOfClasses :: ScheduleOfClasses(string semester){
 }
 
 ScheduleOfClasses :: ~ScheduleOfClasses(){
+    for(Section* sec : this->getSections()){
+        if(sec != nullptr){
+            sec->detachScheduleOfClasses();
+        }
+    }
     this->sections.clear();
 }
 

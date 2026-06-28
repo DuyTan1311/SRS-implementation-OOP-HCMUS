@@ -28,3 +28,11 @@ int TranscriptEntry :: getGrade(){
 Section* TranscriptEntry :: getSection(){
     return this->section;
 }
+Transcript* TranscriptEntry :: getTranscript(){
+    return this->transcript;
+}
+
+void TranscriptEntry :: detachTranscript(){
+    if(this->getTranscript() == nullptr) return;
+    this->setTranscript(nullptr);
+}

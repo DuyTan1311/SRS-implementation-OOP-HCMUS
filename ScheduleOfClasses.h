@@ -11,6 +11,7 @@ private:
 public:
     void setSemester(std::string sem);
     void addSection(Section* section);
+    void dropSection(Section* section);
     Section* findSection(std::string sectionNo);
     ScheduleOfClasses();
     ScheduleOfClasses(std::string semester);

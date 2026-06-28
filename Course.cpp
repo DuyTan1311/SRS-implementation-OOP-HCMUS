@@ -70,9 +70,17 @@ Section* Course :: scheduleSection(string sectionNo, string dayOfWeek, string ti
     return newSection;
 }
 
+void Course :: dropSection(Section* section){
+    if(section == nullptr) return;
+    this->sections.remove(section);
+}
+
 Course :: ~Course(){
     for(Section* sec : this->getSections()){
-        delete sec;
+        if(sec != nullptr){
+            sec->detachCourse();
+            delete sec;
+        } 
     }
     sections.clear();
     prerequisites.clear();

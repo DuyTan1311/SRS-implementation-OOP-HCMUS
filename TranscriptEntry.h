@@ -14,6 +14,9 @@ public:
     void setTranscript(Transcript* trans);
     TranscriptEntry();
     TranscriptEntry(int grade, Section* section);
+    ~TranscriptEntry();
+    void detachTranscript();
     int getGrade();
+    Transcript* getTranscript();
     Section* getSection();
 };

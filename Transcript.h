@@ -17,6 +17,7 @@ public:
     int getGrade(std::string courseNo);
     Student* getStudent();
     const std::list<TranscriptEntry*>& getEntries();
+    void detachStudent();
     ~Transcript();
 
 };

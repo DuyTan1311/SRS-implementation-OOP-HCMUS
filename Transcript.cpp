@@ -36,9 +36,22 @@ int Transcript :: getGrade(string courseNo){
     return -1;
 }
 
+void Transcript :: detachStudent(){
+    if(this->getStudent() == nullptr) return; // cần check null để tránh lặp vô hạn
+    this->student = nullptr;
+}
+
 Transcript :: ~Transcript(){
     for(TranscriptEntry* entry : this->getEntries()){
-        delete entry;
+        if(entry != nullptr){
+            entry->detachTranscript();
+            delete entry;
+        }
     }
     this->entries.clear();
+    Student* temp = this->getStudent();
+    if(temp != nullptr){ // nếu Student bị delete trước rồi thì bỏ qua
+        temp->detachTranscript();
+    }
+    this->detachStudent();
 }

@@ -76,11 +76,28 @@ void Student :: addSection(Section* section){
     this->sections.push_back(section);
 }
 void Student :: dropSection(Section* section){
+    if(section == nullptr) return;
     this->sections.remove(section);
 }
 
+void Student :: detachTranscript(){
+    if(this->getTranscript() == nullptr) return; // check null cho chắc
+
+    this->setTranscript(nullptr);
+}
+
 Student :: ~Student(){
+    for(Section* sec : this->isEnrolledIn()){
+        if(sec != nullptr){
+            sec->drop(this);
+        }
+    }
     this->sections.clear();
+    Transcript* temp = this->getTranscript();
+    if(temp != nullptr){ // nếu Transcript bị delete trước thì bỏ qua
+        temp->detachStudent();
+    }
+    this->detachTranscript();
 }
 
 void Student :: display(){

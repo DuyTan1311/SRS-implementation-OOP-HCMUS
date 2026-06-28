@@ -70,6 +70,10 @@ const list<Student*>& Section :: getStudents(){
     return this->students;
 }
 
+ScheduleOfClasses* Section :: getScheduleOfClasses(){
+    return this->scheduleOfClasses;
+}
+
 void Section :: addStudent(Student* student){
     for(Student* stu : this->getStudents()){
         if(stu == student){
@@ -80,7 +84,18 @@ void Section :: addStudent(Student* student){
 }
 
 void Section :: drop(Student* student){
+    if(student == nullptr) return;
     this->students.remove(student);
+}
+
+void Section :: detachCourse(){
+    if(this->getCourse() == nullptr) return;
+    this->setCourse(nullptr);
+}
+
+void Section:: detachScheduleOfClasses(){
+    if(this->scheduleOfClasses == nullptr) return;
+    this->setScheduleOfClasses(nullptr);
 }
 
 bool Section :: confirmSeatAvailability(){
@@ -147,4 +162,23 @@ bool Section :: postGrade(Student* student, int grade){
     studentTranscript->addTranscriptEntry(this, grade);
     cout << "Post grade successfully." << endl;
     return true;
+}
+
+Section :: ~Section(){
+    for(Student* stu : this->getStudents()){
+        if(stu != nullptr){
+            stu->dropSection(this);
+        }
+    }
+    this->students.clear();
+    Course* tempCourse = this->getCourse();
+    if(tempCourse != nullptr){
+        tempCourse->dropSection(this);
+    }
+    this->detachCourse();
+    ScheduleOfClasses* tempSchedule = this->getScheduleOfClasses();
+    if(tempSchedule != nullptr){
+        tempSchedule->dropSection(this);
+    }
+    this->detachScheduleOfClasses();
 }

@@ -28,4 +28,5 @@ public:
     void addPrerequisites(Course* course); // hàm này sẽ cần một class CourseDatabase bên ngoài nếu muốn add bằng CourseNo
     bool hasPrerequisites();
     void addSection(Section* section);
+    void dropSection(Section* section);
 };
