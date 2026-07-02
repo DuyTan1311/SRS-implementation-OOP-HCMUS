@@ -6,8 +6,8 @@ class Transcript;
 class TranscriptEntry{
 private:
     int grade;
-    Section* section;
-    Transcript* transcript;
+    Section* section = nullptr;
+    Transcript* transcript = nullptr;
 public:
     void setGrade(int grade);
     void setSection(Section* sec);
@@ -19,4 +19,5 @@ public:
     int getGrade();
     Transcript* getTranscript();
     Section* getSection();
+    void display();
 };

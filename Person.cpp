@@ -24,6 +24,8 @@ Person :: Person(string ssn, string name){
     this->setName(name);
 }
 
+Person :: ~Person(){}
+
 string Person :: getSsn(){
     return this->ssn;
 }
@@ -40,17 +42,18 @@ void Student :: setDegree(string degree){
 }
 
 void Student :: setTranscript(Transcript* transcript){
-    if(this->transcript != nullptr) return;
     this->transcript = transcript;
 }
 
 Student :: Student() : Person(){
     this->setMajor("none");
     this->setDegree("none");
+    this->setTranscript(nullptr);
 }
-Student :: Student(string ssn, string name, string major, string degree) : Person(ssn, name){
+Student :: Student(string ssn, string name, string major, string degree, Transcript* transcript) : Person(ssn, name){
     this->setMajor(major);
     this->setDegree(degree);
+    this->setTranscript(transcript);
 }
 
 string Student :: getMajor(){
@@ -101,5 +104,13 @@ Student :: ~Student(){
 }
 
 void Student :: display(){
-    //implement sau
+    cout << "Student Name: " << this->getName() << endl;
+    cout << "SSN: " << this->getSsn() << endl;
+    cout << "Major: " << this->getMajor() << endl;
+    cout << "Degree: " << this->getDegree() << endl;
+}
+
+void Student :: displayTranscript(){
+    cout << "Student Name: " << this->getName() << endl;
+    this->getTranscript()->display();
 }

@@ -10,7 +10,7 @@ class Course;
 class Transcript{
 private:
     std::list<TranscriptEntry*> entries; //tra cứu bằng courseNo
-    Student* student;
+    Student* student = nullptr;
 public:
     void addTranscriptEntry(Section* section, int grade);
     void addStudent(Student* student);
@@ -19,5 +19,5 @@ public:
     const std::list<TranscriptEntry*>& getEntries();
     void detachStudent();
     ~Transcript();
-
+    void display();
 };

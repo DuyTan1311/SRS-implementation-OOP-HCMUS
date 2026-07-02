@@ -99,7 +99,7 @@ void Section:: detachScheduleOfClasses(){
 }
 
 bool Section :: confirmSeatAvailability(){
-    return this->students.size() < this->getSeatingCapacity();
+    return (int)this->students.size() < this->getSeatingCapacity();
 }
 
 bool Section :: enroll(Student* student){

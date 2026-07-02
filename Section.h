@@ -13,9 +13,9 @@ private:
     std::string timeOfDay;
     std::string room;
     int seatingCapacity;
-    Course* course;
-    ScheduleOfClasses* scheduleOfClasses;
-    list<Student*> students;
+    Course* course = nullptr;
+    ScheduleOfClasses* scheduleOfClasses = nullptr;
+    std::list<Student*> students;
 public:
     void setSectionNo(std::string no);
     void setDayOfWeek(std::string day);

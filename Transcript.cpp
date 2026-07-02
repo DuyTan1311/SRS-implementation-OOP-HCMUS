@@ -55,3 +55,12 @@ Transcript :: ~Transcript(){
     }
     this->detachStudent();
 }
+
+void Transcript :: display(){
+    cout << "No\tSection\tGrade\n";
+    int index = 1;
+    for(TranscriptEntry* entry : this->getEntries()){
+        cout << index << "\t";
+        entry->display();
+    }
+}

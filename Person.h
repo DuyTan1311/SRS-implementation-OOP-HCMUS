@@ -25,13 +25,13 @@ private:
     std::string major;
     std::string degree;
     std::list<Section*> sections;
-    Transcript* transcript;
+    Transcript* transcript = nullptr;
 public:
     void setMajor(std::string major);
     void setDegree(std::string degree);
     void setTranscript(Transcript* transcript);
     Student();
-    Student(std::string ssn, std::string name, std::string major, std::string degree);
+    Student(std::string ssn, std::string name, std::string major, std::string degree, Transcript* transcript);
     ~Student() override;
     std::string getMajor();
     std::string getDegree();
@@ -41,4 +41,5 @@ public:
     void detachTranscript();
     const std::list<Section*>& isEnrolledIn();
     void display() override;
+    void displayTranscript();
 };

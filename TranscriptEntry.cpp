@@ -1,5 +1,7 @@
 #include<iostream>
 #include "TranscriptEntry.h"
+#include "Section.h"
+#include "Course.h"
 
 using namespace std;
 
@@ -7,7 +9,7 @@ void TranscriptEntry :: setGrade(int grade){
     this->grade = grade;
 }
 void TranscriptEntry :: setSection(Section* sec){
-    this->section = section;
+    this->section = sec;
 }
 void TranscriptEntry :: setTranscript(Transcript* trans){
     this->transcript = trans;
@@ -22,6 +24,8 @@ TranscriptEntry :: TranscriptEntry(int grade, Section* section){
     this->setSection(section);
 }
 
+TranscriptEntry :: ~TranscriptEntry(){}
+
 int TranscriptEntry :: getGrade(){
     return this->grade;
 }
@@ -35,4 +39,8 @@ Transcript* TranscriptEntry :: getTranscript(){
 void TranscriptEntry :: detachTranscript(){
     if(this->getTranscript() == nullptr) return;
     this->setTranscript(nullptr);
+}
+
+void TranscriptEntry :: display(){
+    cout << this->getSection()->getCourse()->getCourseName() << "\t" << this->getGrade() << endl;
 }
